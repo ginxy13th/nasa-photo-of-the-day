@@ -9,10 +9,10 @@ const Makerpage = () => {
 
     useEffect(() => {
         axios
-         .get('https://api.nasa.gov/planetary/apod')
+         .get('https://api.nasa.gov/planetary/apod?api_key=CZtOXA5O8YsycSSTTSj53338NDbMBdhvjAF8yNs4&date=2020-07-12')
         .then(response => {
             console.log(response.data)
-            setData(response.data)
+              setData([response.data])
         })
         .catch(error => {
             console.log('error:', error)
@@ -25,7 +25,7 @@ const Makerpage = () => {
             return (
              <Card 
              key={p.id} 
-             img={p.hdurl}
+             img={p.url}
              title={p.title}
              date={p.date}/>   
             ) 
