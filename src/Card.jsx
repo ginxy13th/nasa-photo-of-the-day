@@ -6,21 +6,25 @@ const insidewrapperDiv = styled.div`
 display:flex;
 justify-content:center;
 `;
-
-const p = styled.p`
-background:blue;
-color:white;
+const imageDiv = styled.div`
+display:flex;
+justify-content:center;
 `;
-const Cards = ({img, title, date}) => {
+
+const Cards = ({ img, title, copyright, date, explaination }) => {
     return (
     
-    <Card body inverse style={{ backgroundColor: 'blue', color: 'white' }} class='card'>
-        <insidewrapperDiv>
+    <Card body inverse style={{ backgroundColor: 'royalblue', color: 'white' }} class='card'>
+        <imageDiv>
             <img width='80%' alt='space of the day'src={img}></img>
+        </imageDiv>
+        <insidewrapperDiv body inverse style={{ backgroundColor: 'blue', color: 'white' }}>
             <p>{title}</p>
+            <p>{copyright}</p>
             <p>{date}</p>
-            </insidewrapperDiv>
-        </Card>
+            <p>{explaination}</p>
+         </insidewrapperDiv>
+    </Card>
     )
     }
 export default Cards;

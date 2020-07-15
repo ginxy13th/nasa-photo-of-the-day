@@ -9,7 +9,7 @@ const Makerpage = () => {
 
     useEffect(() => {
         axios
-         .get('https://api.nasa.gov/planetary/apod?api_key=CZtOXA5O8YsycSSTTSj53338NDbMBdhvjAF8yNs4&date=2020-07-12')
+         .get('https://api.nasa.gov/planetary/apod?api_key=CZtOXA5O8YsycSSTTSj53338NDbMBdhvjAF8yNs4&date=2020-07-14')
         .then(response => {
             console.log(response.data)
               setData([response.data])
@@ -27,7 +27,9 @@ const Makerpage = () => {
              key={p.id} 
              img={p.url}
              title={p.title}
-             date={p.date}/>   
+             copyright={p.copyright}
+             date={p.date}
+             explaination={p.explanation}/>   
             ) 
         }
         )}   
