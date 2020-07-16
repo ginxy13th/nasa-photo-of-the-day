@@ -1,20 +1,13 @@
 import React, { useState, useEffect} from "react";
 import Card from './Card';
 import axios from "axios";
-import "react-datepicker/dist/react-datepicker.css";
-//   import Calender from "./datepicker";
-import Reactplayer from 'react-player';
 
-const d= new Date()
-const todayDate = {
-    month: d.getMonth(),
-    year: d.getFullYear(),
-    day: d.getDate()
-}
+
+
 const Makerpage = () => {
     
     const[data, setData]= useState([]);
-    const [date, setDate] = useState(`${todayDate.year}-06-${todayDate.day}`);
+    const [date, setDate] = useState([]);
 
     useEffect(() => {
         axios
@@ -27,11 +20,11 @@ const Makerpage = () => {
         })
         .catch(error => {
             console.log('error:', error)
-        })
-
-        
+        })   
     }, [date])
+
 console.log('date---->', date)
+
     return( 
     <div className='makerpage-container'>
         {data.map(p => {
@@ -44,7 +37,7 @@ console.log('date---->', date)
              title={p.title}
              copyright={p.copyright}
              explaination={p.explanation}
-             setDate={setDate}
+              setDate={setDate}
              />   
             ) 
         }
