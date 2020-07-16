@@ -1,6 +1,7 @@
 import React from "react";
 import styled from 'styled-components';
-import Calender from './datepicker.jsx'
+import Calender from './datepicker.jsx';
+import ReactPlayer from 'react-player'
 
 const Carddiv = styled.div`
 background-color:royalblue;
@@ -33,13 +34,14 @@ const CalenderDiv = styled.div`
 margin:15px;
 `;
 
-const Cards = ({ img, title, date, copyright, explaination }) => {
+const Cards = ({ img, title, date, media, copyright, explaination, setDate }) => {
+    if (media === 'image'){
     return (
     <Carddiv>
          <Heading>NASA PHOTO OF THE DAY <span role="img" aria-label='go!'>🚀</span></Heading>
          <h2> PICK A DATE!!</h2>
          <CalenderDiv>
-         <Calender />
+         <Calender setDate={setDate} date={date}/>
          </CalenderDiv>
          <ImageDiv>
             <img alt='space of the day'src={img}></img>
@@ -51,6 +53,23 @@ const Cards = ({ img, title, date, copyright, explaination }) => {
             <p>{explaination}</p>
          </InsidewrapperDiv>
     </Carddiv>
-    )
-    }
+    )}
+    if (media === 'video'){
+        return (
+        <Carddiv>
+        <Heading>NASA PHOTO OF THE DAY <span role="img" aria-label='go!'>🚀</span></Heading>
+        <h2> PICK A DATE!!</h2>
+        <CalenderDiv>
+        <Calender setDate={setDate} date={date}/>
+        </CalenderDiv>
+           <ReactPlayer url={img}></ReactPlayer>
+       <InsidewrapperDiv body inverse style={{ backgroundColor: 'blue', color: 'white' }}>
+           <p>{title}</p>
+           <p>{date}</p>
+           <p>{copyright}</p>
+           <p>{explaination}</p>
+        </InsidewrapperDiv>
+   </Carddiv>
+    )}
+        }
 export default Cards;

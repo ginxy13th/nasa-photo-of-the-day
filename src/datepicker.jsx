@@ -3,10 +3,10 @@ import DatePicker from 'react-datepicker';
 
 import "react-datepicker/dist/react-datepicker.css";
 
-const Calender = () => {
-    const [startDate, setStartDate] = useState(new Date());
+const Calender = ({setDate, date}) => {
+    // const [startDate, setStartDate] = useState(new Date());
     return (
-      <DatePicker selected={startDate} onChange={date => setStartDate(date)} />
+      <DatePicker selected={date} onChange={date => setDate(date)} />
     );
   };
 
