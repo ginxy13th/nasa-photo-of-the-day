@@ -1,32 +1,56 @@
 import React from "react";
-import {Card} from 'reactstrap';
 import styled from 'styled-components';
 import Calender from './datepicker.jsx'
-const insidewrapperDiv = styled.div`
+
+const Carddiv = styled.div`
+background-color:royalblue;
+color:white;
 display:flex;
+flex-direction:column;
 justify-content:center;
+align-items:center;
+padding: 30px;
 `;
-const imageDiv = styled.div`
+
+const InsidewrapperDiv = styled.div`
 display:flex;
 justify-content:center;
+flex-direction:column;
+margin:10px;
+font-size: 17px;
+padding: 20px;
+`;
+
+const ImageDiv = styled.div`
+max-width: 80%;
+`;
+ const Heading = styled.h1`
+ font-family: 'Ranchers', cursive;
+ font-size: 50px;
+ `;
+
+const CalenderDiv = styled.div`
+margin:15px;
 `;
 
 const Cards = ({ img, title, date, copyright, explaination }) => {
     return (
-    
-    <Card body inverse style={{ backgroundColor: 'royalblue', color: 'white' }} class='card'>
-         <h1>NASA PHOTO OF THE DAY</h1>
+    <Carddiv>
+         <Heading>NASA PHOTO OF THE DAY <span role="img" aria-label='go!'>🚀</span></Heading>
+         <h2> PICK A DATE!!</h2>
+         <CalenderDiv>
          <Calender />
-         <imageDiv>
-            <img width='80%' alt='space of the day'src={img}></img>
-        </imageDiv>
-        <insidewrapperDiv body inverse style={{ backgroundColor: 'blue', color: 'white' }}>
+         </CalenderDiv>
+         <ImageDiv>
+            <img alt='space of the day'src={img}></img>
+        </ImageDiv>
+        <InsidewrapperDiv body inverse style={{ backgroundColor: 'blue', color: 'white' }}>
             <p>{title}</p>
             <p>{date}</p>
             <p>{copyright}</p>
             <p>{explaination}</p>
-         </insidewrapperDiv>
-    </Card>
+         </InsidewrapperDiv>
+    </Carddiv>
     )
     }
 export default Cards;
